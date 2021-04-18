@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .pad {
+            padding-right: 30px;
+        }
+
+        a.nav-item:hover {
+            background-color: lightskyblue;
+            border-radius: 5px;
+        }
+
+        body {
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container">
+
+                <a href="http://localhost:3000/passport_seva/home" class="navbar-brand">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWQyWxu77uk-9UmrJvgfSLaaH_d_IcPpA4JHiXAMBZHDw9FGk0TTkYlMfOXHLoVnPTy1c&usqp=CAU"
+                        height="50px" alt="CoolBrand">
+                </a>
+                <span class="h4">Passport Seva</span>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="http://localhost:3000/passport_seva/home" class="nav-item nav-link">Logout</a>
+                    </div>
+                </div>
+
+
+        </nav>
+    </header>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>Passport Types</h3>
+        </div>
+        <div class="card-body bg-light">
+            <div>
+                <div>
+                    <span><b>Applying for : </b></span>
+                    <span>
+                        <%= passport_type_detail.applying_for%>
+                    </span>
+                </div>
+                <br>
+                <div>
+                    <span><b>Type of Application : </b></span>
+                    <span>
+                        <%= passport_type_detail.type_of_application%>
+                    </span>
+                </div>
+                <br>
+                <div>
+                    <span><b>Type of passport booklet : </b></span>
+                    <span>
+                        <%= passport_type_detail.type_of_passport_booklet%>
+                    </span>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>Applicant Details</h3>
+        </div>
+        <div class="card-body bg-light">
+            <div>
+                <div>
+                    <p><b>First Name : </b></p>
+                    <p>
+                        <%=applicant_detail.first_name%>
+                    </p>
+                    <p><b>Last Name : </b></p>
+                    <p>
+                        <%=applicant_detail.last_name%>
+                    </p>
+                    <p><b>Gender : </b></p>
+                    <p>
+                        <%=applicant_detail.gender %>
+                    </p>
+                    <p><b>Other Name : </b></p>
+                    <p>
+                        <%=applicant_detail.any_other_name %>
+                    </p>
+                    <p><b>Changed Name : </b></p>
+                    <p>
+                        <%=applicant_detail.changed_name %>
+                    </p>
+                    <p><b>Date of Birth : </b></p>
+                    <p>
+                        <%=applicant_detail.dob %>
+                    </p>
+                    <p><b>Place of Birth out of India? : </b></p>
+                    <p>
+                        <%=applicant_detail.place_of_birth_out_of_india %>
+                    </p>
+                    <p><b>Place of Birth : </b></p>
+                    <p>
+                        <%=applicant_detail.place_of_birth %>
+                    </p>
+                    <p><b>State/UT : </b></p>
+                    <p>
+                        <%=applicant_detail.state %>
+                    </p>
+                    <p><b>District : </b></p>
+                    <p>
+                        <%=applicant_detail.district %>
+                    </p>
+                    <p><b>Marital Status : </b></p>
+                    <p>
+                        <%=applicant_detail.martial_status %>
+                    </p>
+                    <p><b>Citizen of India By : </b></p>
+                    <p>
+                        <%=applicant_detail.citizen_of_india_by %>
+                    </p>
+                    <p><b>Pan Card Number : </b></p>
+                    <p>
+                        <%=applicant_detail.pan_number %>
+                    </p>
+                    <p><b>Voter ID card Number : </b></p>
+                    <p>
+                        <%=applicant_detail.voter_id %>
+                    </p>
+                    <p><b>Employment Type : </b></p>
+                    <p>
+                        <%=applicant_detail.employment_type %>
+                    </p>
+                    <p><b>Parent/Spouse Goverment Servent : </b></p>
+                    <p>
+                        <%=applicant_detail.parent_govt_servent %>
+                    </p>
+                    <p><b>Education Qualification : </b></p>
+                    <p>
+                        <%=applicant_detail.education_type%>
+                    </p>
+                    <p><b>Aadhar Card Number : </b></p>
+                    <p>
+                        <%=applicant_detail.visible_mark %>
+                    </p>
+                    <p><b>Visible Mark on Body : </b></p>
+                    <p>
+                        <%=applicant_detail.aadhaar_number %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>Family Details</h3>
+        </div>
+        <div class="card-body bg-light">
+            <div>
+                <div>
+                    <p><b>Father's First Name : </b></p>
+                    <p>
+                        <%= family_detail.father_first_name %>
+                    </p>
+                    <p><b>Father's Last Name : </b></p>
+                    <p>
+                        <%= family_detail.father_last_name %>
+                    </p>
+                    <p><b>Mother's First Name : </b></p>
+                    <p>
+                        <%= family_detail.mother_first_name %>
+                    </p>
+                    <p><b>Mother's Last Name : </b></p>
+                    <p>
+                        <%= family_detail.mother_last_name %>
+                    </p>
+                    <p><b>Guardian's First Name : </b></p>
+                    <p>
+                        <%= family_detail.guardian_first_name %>
+                    </p>
+                    <p><b>Guardian's Last Name : </b></p>
+                    <p>
+                        <%= family_detail.guardian_last_name %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h2>Residential Address</h2>
+        </div>
+        <div class="card-body bg-light">
+            <div>
+                <div>
+                    <p><b>Present Address out of India : </b></p>
+                    <p>
+                        <%= residential_address_detail.present_address_out_of_india %>
+                    </p>
+                    <p><b>House Number and Street Name : </b></p>
+                    <p>
+                        <%= residential_address_detail.house_street %>
+                    </p>
+                    <p><b>Village/Town/City : </b></p>
+                    <p>
+                        <%= residential_address_detail.village_town_city %>
+                    </p>
+                    <p><b>State/UT : </b></p>
+                    <p>
+                        <%= residential_address_detail.state_ut %>
+                    </p>
+                    <p><b>District : </b></p>
+                    <p>
+                        <%= residential_address_detail.district %>
+                    </p>
+                    <p><b>Police Station : </b></p>
+                    <p>
+                        <%= residential_address_detail.police_station %>
+                    </p>
+                    <p><b>Pincode : </b></p>
+                    <p>
+                        <%= residential_address_detail.pincode %>
+                    </p>
+                    <p><b>Mobile Number : </b></p>
+                    <p>
+                        <%= residential_address_detail.moblie_number %>
+                    </p>
+                    <p><b>Telephone Number : </b></p>
+                    <p>
+                        <%= residential_address_detail.telephone_number %>
+                    </p>
+                    <p><b>Email ID : </b></p>
+                    <p>
+                        <%= residential_address_detail.email_id %>
+                    </p>
+                    <p><b>Permanent Address Available : </b></p>
+                    <p>
+                        <%= residential_address_detail.is_permanent_address_available %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>Emergency Contact</h3>
+        </div>
+        <div class="card-body bg-light">
+            <div>
+                <div>
+                    <p><b>Name and Address : </b></p>
+                    <p>
+                        <%= emergency_contact_detail.name_and_address %>
+                    </p>
+                    <p><b>Mobile Number : </b></p>
+                    <p>
+                        <%= emergency_contact_detail.moblie_number %>
+                    </p>
+                    <p><b>Telephone Number : </b></p>
+                    <p>
+                        <%= emergency_contact_detail.telephone_number %>
+                    </p>
+                    <p><b>Email ID : </b></p>
+                    <p>
+                        <%= emergency_contact_detail.email_id %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>Identity Certificate/Passport Details</h3>
+        </div>
+        <div class="card-body bg-light">
+            <div>
+                <div>
+                    <p><b>Ever hold Identity Certificate : </b></p>
+                    <p>
+                        <%= identity_certificate_detail.any_identity_certificate %>
+                    </p>
+                    <p><b>Details of previous/current/official passport : </b></p>
+                    <p>
+                        <%= identity_certificate_detail.details_of_previous_passport %>
+                    </p>
+                    <p><b>Applied but not issued passport : </b></p>
+                    <p>
+                        <%= identity_certificate_detail.applied_but_not_issued %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>Other Details</h3>
+        </div>
+        <div class="card-body bg-light">
+            <div>
+                <div>
+                    <p><b>Are any proceedings in respect of an offence alleged to have been committed by you pending
+                            before a
+                            criminal court in India? : </b></p>
+                    <p>
+                        <%= other_detail.any_pending_proceeding %>
+                    </p>
+                    <p><b>Has any warrant or summons for your appearence been issued and pending before a court
+                            under
+                            any law
+                            for the time being in force? : </b></p>
+                    <p>
+                        <%= other_detail.any_pending_warrant_summons %>
+                    </p>
+                    <p><b>Has a warrant for your arrest been issued by a court under any law for the time being in
+                            force? : </b>
+                    </p>
+                    <p>
+                        <%= other_detail.any_warrant_issued %>
+                    </p>
+                    <p><b>Has an order prohibiting your departure from India been made by any court? : </b></p>
+                    <p>
+                        <%= other_detail.convicted_by_court %>
+                    </p>
+                    <p><b>Have you at any time during the period of five years immediately proceding the date of
+                            this
+                            application been convicted by a court in
+                            India for offence involving moral turpitude and sentenced in respect there of to
+                            imprisonment for
+                            not less than two years? : </b></p>
+                    <p>
+                        <%= other_detail.denied_passport %>
+                    </p>
+                    <p><b>Have you ever been refused/denied passport? : </b></p>
+                    <p>
+                        <%= other_detail.denied_passport %>
+                    </p>
+                    <p><b>Has your passport ever been impounded? : </b></p>
+                    <p>
+                        <%= other_detail.ever_impounded %>
+                    </p>
+                    <p><b>Has your passport ever been revoked? : </b></p>
+                    <p>
+                        <%= other_detail.passport_revoked %>
+                    </p>
+                    <p><b>Have you ever been granted citizenship by any other country? : </b></p>
+                    <p>
+                        <%= other_detail.citizenship_by_other_country %>
+                    </p>
+                    <p><b>Have you ever held the passport of any other country at any time? : </b></p>
+                    <p>
+                        <%= other_detail.any_other_country_passport_anytime %>
+                    </p>
+                    <p><b>Have you ever surrendered your Indian passport? : </b></p>
+                    <p>
+                        <%= other_detail.surrendered_indian_passport %>
+                    </p>
+                    <p><b>Have you ever applied for renunciation of Indian citizenship? : </b></p>
+                    <p>
+                        <%= other_detail.applied_renunciation_indian_citizenship %>
+                    </p>
+                    <p><b>Have you ever returned to India on Emergency Certificate(EC)? : </b></p>
+                    <p>
+                        <%= other_detail.returned_on_EC %>
+                    </p>
+                    <p><b>Have you ever been deported from any country? : </b></p>
+                    <p>
+                        <%= other_detail.deported_from_any_country %>
+                    </p>
+                    <p><b>Have you ever been repatriated from any country back to India? : </b></p>
+                    <p>
+                        <%= other_detail.repatriated_from_any_country %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>Self Declaration</h3>
+        </div>
+        <div class="card-body bg-light">
+            <div>
+                <div>
+                    <p><b>Place : </b></p>
+                    <p>
+                        <%= self_declaration_detail.place %>
+                    </p>
+                    <p><b>Date : </b></p>
+                    <p>
+                        <%= self_declaration_detail.date %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="container card p-0">
+        <br>
+        <br>
+        <div class="card-body bg-light">
+            <form action="/passport_seva/admin/applicant_detail/<%=comprehensive_detail._id%>" method="POST">
+                <button type="submit" class="col-md-12 btn btn-success text-center">Submit</button>
+            </form>
+        </div>
+        <br>
+        <br>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5 ">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase">External Links</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-dark">Ministry of External Affairs</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">National Portal of India</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Bureau of Immigration</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Foreigners Division</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase mb-0">Legal Information</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-dark">Terms & Conditions</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Copyright Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Hyperlinking Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3 text-center" style="background-color: rgba(0, 0, 0, 0.2);">
+            © Content Owned by Ministry of External Affairs, Government of India<br>
+            Site Maintained by batch-3 Limited<br>
+            Best Viewed in chrome<br>
+            Last Updated on 16/04/2021<br>
+
+        </div>
+    </footer>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+
+
+</html>

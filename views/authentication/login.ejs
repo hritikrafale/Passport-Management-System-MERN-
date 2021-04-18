@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Seva</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="/stylesheets/app.css">
+</head>
+
+<body class="d-flex flex-column vh-100">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+            <div class="container">
+
+                <a href="http://localhost:3000/passport_seva/home" class="navbar-brand">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWQyWxu77uk-9UmrJvgfSLaaH_d_IcPpA4JHiXAMBZHDw9FGk0TTkYlMfOXHLoVnPTy1c&usqp=CAU"
+                        height="80px" alt="CoolBrand">
+                </a>
+                <span class="h3">Passport Seva</span>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="http://localhost:3000/passport_seva/home" class="nav-item nav-link">Home</a>
+                        <a href="http://localhost:3000/passport_seva/register" class="nav-item nav-link">New
+                            User Registration</a>
+                        <a href="http://localhost:3000/passport_seva/admin_login" class="nav-item nav-link">Admin
+                            Login</a>
+                        <a href="http://localhost:3000/passport_seva/police_login" class="nav-item nav-link">Police
+                            Login</a>
+                        <a href="http://localhost:3000/passport_seva/login" class="nav-item nav-link">Login</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>User Login</h3>
+        </div>
+        <div class="card-body bg-light">
+            <form action="/passport_seva/login" method="POST">
+                <div>
+                    <label class="form-label" for="username">Username</label>
+                    <input class="form-control" type="text" id="username" name="username">
+                </div>
+                <br>
+                <div>
+                    <label class="form-label" for="password">Password</label>
+                    <input class="form-control" type="password" id="password" name="password">
+                </div>
+                <br>
+                <div>
+                    <button class="btn btn-success ">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5 ">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase">External Links</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-dark">Ministry of External Affairs</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">National Portal of India</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Bureau of Immigration</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Foreigners Division</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase mb-0">Legal Information</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-dark">Terms & Conditions</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Copyright Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Hyperlinking Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3 text-center" style="background-color: rgba(0, 0, 0, 0.2);">
+            © Content Owned by Ministry of External Affairs, Government of India<br>
+            Site Maintained by batch-3 Limited<br>
+            Best Viewed in chrome<br>
+            Last Updated on 16/04/2021<br>
+
+        </div>
+    </footer>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .pad {
+      padding-right: 30px;
+    }
+
+    a.nav-item:hover {
+      background-color: lightskyblue;
+      border-radius: 5px;
+    }
+
+    body {
+      background-color: gainsboro;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="mb-5">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <div class="container">
+
+        <a href="http://localhost:3000/passport_seva/home" class="navbar-brand">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWQyWxu77uk-9UmrJvgfSLaaH_d_IcPpA4JHiXAMBZHDw9FGk0TTkYlMfOXHLoVnPTy1c&usqp=CAU"
+            height="50px" alt="CoolBrand">
+        </a>
+        <span class="h4">Passport Seva</span>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ml-auto">
+            <% if(username.username) {%>
+              <a href="http://localhost:3000/passport_seva/apply_passport" class="nav-item nav-link">Apply for passport
+                online</a>
+              <a href="http://localhost:3000/passport_seva/logout" class="nav-item nav-link">Logout</a>
+              <%} else {%>
+                <a href="http://localhost:3000/passport_seva/register" class="nav-item nav-link">New User
+                  Registration</a>
+                <a href="http://localhost:3000/passport_seva/admin_login" class="nav-item nav-link">Admin Login</a>
+                <a href="http://localhost:3000/passport_seva/police_login" class="nav-item nav-link">Police Login</a>
+                <a href="http://localhost:3000/passport_seva/login" class="nav-item nav-link">Login</a>
+                <% } %>
+          </div>
+        </div>
+
+
+    </nav>
+  </header>
+
+  <div class="container card p-0">
+    <div class="card-header bg-secondary text-light">
+      <h3>Applicant Details</h3>
+    </div>
+    <div class="card-body bg-light">
+      <form action="/passport_seva/apply_passport/applicant_details" method="POST">
+        <div class="row">
+          <div class="col-sm-6">
+            <label class="pad" for="firstname">First Name</label>
+            <input class="shadow bg-white rounded" type="text" name="first_name" id="firstname" <%
+              if(applicant_detail){%> value = "<%= applicant_detail.first_name %>" <%}%> >
+          </div>
+          <br>
+          <div class="col-sm-6">
+            <label class="pad" for="lastname">Last Name</label>
+            <input class="shadow bg-white rounded" type="text" name="last_name" id="lastname" <% if(applicant_detail){%>
+            value = "<%= applicant_detail.last_name %>" <%}%> >
+          </div>
+        </div>
+        <br>
+        <div>
+          <label class="pad" for="gender">Gender</label>
+          <input class="form-check-input" type="radio" id="male" name="gender" value="male" <% if(applicant_detail &&
+            applicant_detail.gender=="male" ){%> checked <%}%> >
+            <label class="form-check-label pad" for="male">Male</label>
+            <input class="form-check-input" type="radio" id="female" name="gender" value="female" <% if(applicant_detail
+              && applicant_detail.gender=="female" ){%> checked <%}%>>
+              <label class="form-check-label pad" for="female">Female</label>
+              <input class="form-check-input" type="radio" id="trans" name="gender" value="transgender" <%
+                if(applicant_detail && applicant_detail.gender=="transgender" ){%> checked <%}%>>
+                <label class="form-check-label pad" for="trans">Transgender</label>
+
+        </div>
+        <br>
+        <div>
+          <label class="form-check-label pad" for="yes">Have you ever been known by other names(aliases)?</label>
+          <input class="form-check-input" type="radio" id="yes" name="any_other_name" value="yes" <% if(applicant_detail
+            && applicant_detail.any_other_name=="yes" ){%> checked <%}%>>
+            <label class="form-check-label pad" for="yes">Yes</label>
+            <input class="form-check-input" type="radio" id="no" name="any_other_name" value="no" <% if(applicant_detail
+              && applicant_detail.any_other_name=="no" ){%> checked <%}%>>
+              <label class="form-check-label pad" for="no">No</label>
+        </div>
+        <br>
+        <div>
+          <label class="form-check-label pad" for="yes1">Have you ever changed your name?</label>
+          <input class="form-check-input" type="radio" id="yes1" name="changed_name" value="yes" <% if(applicant_detail
+            && applicant_detail.changed_name=="yes" ){%> checked <%}%>>
+            <label class="form-check-label pad" for="yes1">Yes</label>
+            <input class="form-check-input" type="radio" id="no1" name="changed_name" value="no" <% if(applicant_detail
+              && applicant_detail.changed_name=="no" ){%> checked <%}%>>
+              <label class="form-check-label pad" for="no1">No</label>
+        </div>
+        <br>
+        <div>
+          <label class="pad" for="dob">Date of Birth</label>
+          <input class="shadow bg-white rounded" type="date" name="dob" id="dob">
+        </div>
+        <br>
+        <div>
+          <label class="form-check-label pad" for="no2">Is your Place of Birth out of India?</label>
+          <input class="form-check-input" type="radio" id="yes2" name="place_of_birth_out_of_india" value="yes" <%
+            if(applicant_detail && applicant_detail.place_of_birth_out_of_india=="yes" ){%> checked <%}%>>
+            <label class="form-check-label pad" for="yes2">Yes</label>
+            <input class="form-check-input" type="radio" id="no2" name="place_of_birth_out_of_india" value="no" <%
+              if(applicant_detail && applicant_detail.place_of_birth_out_of_india=="no" ){%> checked <%}%>>
+              <label class="form-check-label pad" for="no2">No</label>
+        </div>
+        <br>
+        <div>
+          <label class="pad" for="place_of_birth">Place of Birth(Village/Town/City)</label>
+          <input class="shadow bg-white rounded" type="text" name="place_of_birth" id="place_of_birth" <%
+            if(applicant_detail){%> value = "<%= applicant_detail.place_of_birth %>" <%}%>>
+        </div>
+        <br>
+        <div>
+          <label class="pad" for="state_ut">State/UT</label>
+          <select class="shadow bg-white rounded" name="state" id="state_ut">
+            <option value="select">---Select---</option>
+            <option value="andaman_nicobar" <% if(applicant_detail && applicant_detail.state=="andaman_nicobar" ) {%>
+              selected <%}%>>Andaman and Nicobar</option>
+            <option value="andhra_pradesh" <% if(applicant_detail && applicant_detail.state=="andhra_pradesh" ) {%>
+              selected <%}%>>Andhra Pradesh</option>
+            <option value="arunachal_pradesh" <% if(applicant_detail && applicant_detail.state=="arunachal_pradesh" )
+              {%> selected <%}%>>Arunachal Pradesh</option>
+            <option value="assam" <% if(applicant_detail && applicant_detail.state=="assam" ) {%> selected <%}%>>assam
+            </option>
+            <option value="bihar" <% if(applicant_detail && applicant_detail.state=="bihar" ) {%> selected <%}%>>bihar
+            </option>
+            <option value="chhattisgarh" <% if(applicant_detail && applicant_detail.state=="chhattisgarh" ) {%> selected
+              <%}%>>chhattisgarh
+            </option>
+            <option value="dadra_nagar_haveli" <% if(applicant_detail && applicant_detail.state=="dadra_nagar_haveli" )
+              {%> selected <%}%>>Dadra and Nagar Haveli</option>
+            <option value="daman_diu" <% if(applicant_detail && applicant_detail.state=="daman_diu" ) {%> selected <%}%>
+                >Daman and Diu</option>
+            <option value="delhi" <% if(applicant_detail && applicant_detail.state=="delhi" ) {%> selected <%}%>>Delhi
+            </option>
+            <option value="goa" <% if(applicant_detail && applicant_detail.state=="goa" ) {%> selected <%}%>>goa
+            </option>
+            <option value="gujarat" <% if(applicant_detail && applicant_detail.state=="gujarat" ) {%> selected <%}%>
+                >Gujarat</option>
+            <option value="haryana" <% if(applicant_detail && applicant_detail.state=="haryana" ) {%> selected <%}%>
+                >Haryana</option>
+            <option value="himachal_pradesh" <% if(applicant_detail && applicant_detail.state=="himachal_pradesh" ) {%>
+              selected <%}%>>Himachal Pradesh</option>
+            <option value="jharkhand" <% if(applicant_detail && applicant_detail.state=="jharkhand" ) {%> selected <%}%>
+                >Jharkhand</option>
+            <option value="karnataka" <% if(applicant_detail && applicant_detail.state=="karnataka" ) {%> selected <%}%>
+                >Karnataka</option>
+            <option value="kerala" <% if(applicant_detail && applicant_detail.state=="kerala" ) {%> selected <%}%>
+                >Kerala</option>
+            <option value="lakshadweep" <% if(applicant_detail && applicant_detail.state=="lakshadweep" ) {%> selected
+              <%}%>>Lakshadweep
+            </option>
+            <option value="madhya_pradesh" <% if(applicant_detail && applicant_detail.state=="madhya_pradesh" ) {%>
+              selected <%}%>>Madhya Pradesh</option>
+            <option value="maharashtra" <% if(applicant_detail && applicant_detail.state=="maharashtra" ) {%> selected
+              <%}%>>Maharashtra
+            </option>
+            <option value="manipur" <% if(applicant_detail && applicant_detail.state=="manipur" ) {%> selected <%}%>
+                >Manipur</option>
+            <option value="meghalaya" <% if(applicant_detail && applicant_detail.state=="meghalaya" ) {%> selected <%}%>
+                >Meghalaya</option>
+            <option value="mizoram" <% if(applicant_detail && applicant_detail.state=="mizoram" ) {%> selected <%}%>
+                >Mizoram</option>
+            <option value="nagaland" <% if(applicant_detail && applicant_detail.state=="nagaland" ) {%> selected <%}%>
+                >Nagaland</option>
+            <option value="odisha" <% if(applicant_detail && applicant_detail.state=="odisha" ) {%> selected <%}%>
+                >Odisha</option>
+            <option value="puducherry" <% if(applicant_detail && applicant_detail.state=="puducherry" ) {%> selected
+              <%}%>>Puducherry
+            </option>
+            <option value="punjab" <% if(applicant_detail && applicant_detail.state=="punjab" ) {%> selected <%}%>
+                >Punjab</option>
+            <option value="rajasthan" <% if(applicant_detail && applicant_detail.state=="rajasthan" ) {%> selected <%}%>
+                >Rajasthan</option>
+            <option value="sikkim" <% if(applicant_detail && applicant_detail.state=="sikkim" ) {%> selected <%}%>
+                >Sikkim</option>
+            <option value="tamil_nadu" <% if(applicant_detail && applicant_detail.state=="tamil_nadu" ) {%> selected
+              <%}%>>Tamil Nadu
+            </option>
+            <option value="telangana" <% if(applicant_detail && applicant_detail.state=="telangana" ) {%> selected <%}%>
+                >Telangana</option>
+            <option value="tripura" <% if(applicant_detail && applicant_detail.state=="tripura" ) {%> selected <%}%>
+                >Tripura</option>
+            <option value="uttar_pradesh" <% if(applicant_detail && applicant_detail.state=="uttar_pradesh" ) {%>
+              selected <%}%>>Uttar Pradesh</option>
+            <option value="uttarakhand" <% if(applicant_detail && applicant_detail.state=="uttarakhand" ) {%> selected
+              <%}%>>Uttarakhand
+            </option>
+            <option value="west_bengal" <% if(applicant_detail && applicant_detail.state=="west_bengal" ) {%> selected
+              <%}%>>West Bengal
+            </option>
+          </select>
+        </div>
+        <br>
+        <div>
+          <label class="pad" for="district">District</label>
+          <input type="text" class="shadow bg-white rounded" name="district" id="district" <% if(applicant_detail){%>
+          value = "<%= applicant_detail.district %>" <%}%>>
+        </div>
+        <br>
+        <div>
+          <label class="pad" for="martial_status">Martial Status</label>
+          <select class="shadow bg-white rounded" name="martial_status" id="martial_status">
+            <option value="select">---Select---</option>
+            <option value="widow_widower" <% if(applicant_detail && applicant_detail.martial_status=="widow_widower" )
+              {%> selected <%}%>>Widow/Widower</option>
+            <option value="divorced" <% if(applicant_detail && applicant_detail.martial_status=="divorced" ) {%>
+              selected <%}%>>Divorced</option>
+            <option value="single" <% if(applicant_detail && applicant_detail.martial_status=="single" ) {%> selected
+              <%}%>>Single
+            </option>
+            <option value="seperated" <% if(applicant_detail && applicant_detail.martial_status=="seperated" ) {%>
+              selected <%}%>>Seperated</option>
+            <option value="married" <% if(applicant_detail && applicant_detail.martial_status=="married" ) {%> selected
+              <%}%>>Married
+            </option>
+          </select>
+        </div>
+        <br>
+        <div>
+          <label class="form-check-label pad" for="citizen_by">Citizen of India by</label>
+          <input class="form-check-input" type="radio" id="Birth" name="citizen_of_india_by" value="Birth" <%
+            if(applicant_detail && applicant_detail.citizen_of_india_by=="Birth" ){%> checked <%}%>>
+            <label class="form-check-label pad" for="Birth">Birth</label>
+            <input class="form-check-input" type="radio" id="Registration/Naturalization" name="citizen_of_india_by"
+              value="Registration_Naturalization" <% if(applicant_detail &&
+              applicant_detail.citizen_of_india_by=="Registration_Naturalization" ){%> checked <%}%>>
+              <label class="form-check-label pad" for="Registration/Naturalization">Registration/Naturalization</label>
+              <input class="form-check-input" type="radio" id="Descent" name="citizen_of_india_by" value="Descent" <%
+                if(applicant_detail && applicant_detail.citizen_of_india_by=="Descent" ){%> checked <%}%>>
+                <label class="form-check-label pad" for="Descent">Descent</label>
+        </div>
+        <br>
+        <div>
+          <label class="pad" for="pan">Pan(if available)</label>
+          <input class="shadow bg-white rounded" type="text" name="pan_number" id="pan" <% if(applicant_detail){%> value
+          = "<%= applicant_detail.pan_number %>" <%}%>>
+        </div>
+        <br>
+        <div>
+          <label class="pad" for="voter_id">Voter ID(if available)</label>
+          <input class="shadow bg-white rounded" type="text" name="voter_id" id="voter_id" <% if(applicant_detail){%>
+          value = "<%= applicant_detail.voter_id %>" <%}%>>
+        </div>
+        <br>
+        <div>
+          <label class="pad" for="employment">Employment Type</label>
+          <select class="shadow bg-white rounded" name="employment_type" id="emp_type">
+            <option value="select">---Select---</option>
+            <option value="goverment" <% if(applicant_detail && applicant_detail.employment_type=="goverment" ) {%>
+              selected <%}%>>Goverment</option>
+            <option value="statuatory_body" <% if(applicant_detail &&
+              applicant_detail.employment_type=="statuatory_body" ) {%> selected <%}%>>Statuatory Body</option>
+            <option value="private" <% if(applicant_detail && applicant_detail.employment_type=="private" ) {%> selected
+              <%}%>>Private
+            </option>
+            <option value="homemaker" <% if(applicant_detail && applicant_detail.employment_type=="homemaker" ) {%>
+              selected <%}%>>Homemaker</option>
+            <option value="not_employed" <% if(applicant_detail && applicant_detail.employment_type=="not_employed" )
+              {%> selected <%}%>>Not Employed</option>
+            <option value="others" <% if(applicant_detail && applicant_detail.employment_type=="others" ) {%> selected
+              <%}%>>Others
+            </option>
+            <option value="psu" <% if(applicant_detail && applicant_detail.employment_type=="psu" ) {%> selected <%}%>
+                >PSU</option>
+            <option value="retired_or_govt_servent" <% if(applicant_detail &&
+              applicant_detail.employment_type=="retired_or_govt_servent" ) {%> selected <%}%>>Retired Goverment Servent
+            </option>
+            <option value="student" <% if(applicant_detail && applicant_detail.employment_type=="student" ) {%> selected
+              <%}%>>Student
+            </option>
+            <option value="self_employed" <% if(applicant_detail && applicant_detail.employment_type=="self_employed" )
+              {%> selected <%}%>>Self Employed</option>
+            <option value="retired_private_service" <% if(applicant_detail &&
+              applicant_detail.employment_type=="retired_private_service" ) {%> selected <%}%>>Retired-Private Service
+            </option>
+            <option value="owner_partner_director_company" <% if(applicant_detail &&
+              applicant_detail.employment_type=="owner_partner_director_company" ) {%> selected <%}%>>Owners Partners &
+                Directors of Companies which are members of Cii Ficci and Assocham</option>
+          </select>
+        </div>
+        <br>
+        <div>
+          <label class="form-check-label pad" for="yes3">Is any of your parent(in case of a minor)/spouse a goverment
+            servent?</label>
+          <input class="form-check-input" type="radio" id="yes3" name="parent_govt_servant" value="yes" <%
+            if(applicant_detail && applicant_detail.parent_govt_servant=="yes" ){%> checked <%}%>>
+            <label class="form-check-label pad" for="yes3">Yes</label>
+            <input class="form-check-input" type="radio" id="no3" name="parent_govt_servant" value="no" <%
+              if(applicant_detail && applicant_detail.parent_govt_servant=="no" ){%> checked <%}%>>
+              <label class="form-check-label pad" for="no3">No</label>
+        </div>
+        <br>
+        <div>
+          <label class="pad" for="">Education qualification</label>
+          <select class="shadow bg-white rounded" name="education_type" id="edu_qual">
+            <option value="select">---Select---</option>
+            <option value="graduate_and_above" <% if(applicant_detail &&
+              applicant_detail.education_type=="graduate_and_above" ) {%> selected <%}%>>Graduate and Above</option>
+            <option value="7_pass_and_less" <% if(applicant_detail && applicant_detail.education_type=="7_pass_and_less"
+              ) {%> selected <%}%>>7th Pass or Less</option>
+            <option value="10_pass_and_above" <% if(applicant_detail &&
+              applicant_detail.education_type=="10_pass_and_above" ) {%> selected <%}%>>10th Pass or Above</option>
+            <option value="between_8_and_9" <% if(applicant_detail && applicant_detail.education_type=="between_8_and_9"
+              ) {%> selected <%}%>>Between 8th and 9th Standard</option>
+          </select>
+        </div>
+        <br>
+        <div>
+          <label class="pad" for="">Visible distinguishing mark</label>
+          <input class="shadow bg-white rounded" type="text" id="dis_mark" name="visible_mark" <%
+            if(applicant_detail){%> value ="<%= applicant_detail.visible_mark %>" <%}%>>
+        </div>
+        <br>
+        <div>
+          <label class="pad" for="adhar_card">Aadhaar Number(if available)</label>
+          <input class="shadow bg-white rounded" type="text" id="aadhaar" name="aadhaar_number" <%
+            if(applicant_detail){%> value = "<%= applicant_detail.aadhaar_number %>" <%}%>>
+        </div>
+        <br>
+        <div>
+          <button class="btn btn-success" type="submit">Submit details</button>
+        </div>
+      </form>
+      <br>
+      <div>
+        <a class="text-decoration-none btn bg-dark text-light"
+          href="http://localhost:3000/passport_seva/apply_passport/passport_type">Prev</a>
+        <a class="text-decoration-none btn bg-dark text-light"
+          href="http://localhost:3000/passport_seva/apply_passport/family_details">Next</a>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-light text-center text-lg-start mt-5 ">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6">
+          <h5 class="text-uppercase">External Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-dark">Ministry of External Affairs</a>
+            </li>
+            <li>
+              <a href="#!" class="text-dark">National Portal of India</a>
+            </li>
+            <li>
+              <a href="#!" class="text-dark">Bureau of Immigration</a>
+            </li>
+            <li>
+              <a href="#!" class="text-dark">Foreigners Division</a>
+            </li>
+          </ul>
+        </div>
+
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6">
+          <h5 class="text-uppercase mb-0">Legal Information</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!" class="text-dark">Terms & Conditions</a>
+            </li>
+            <li>
+              <a href="#!" class="text-dark">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#!" class="text-dark">Copyright Policy</a>
+            </li>
+            <li>
+              <a href="#!" class="text-dark">Hyperlinking Policy</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3 text-center" style="background-color: rgba(0, 0, 0, 0.2);">
+      © Content Owned by Ministry of External Affairs, Government of India<br>
+      Site Maintained by batch-3 Limited<br>
+      Best Viewed in chrome<br>
+      Last Updated on 16/04/2021<br>
+
+    </div>
+  </footer>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+
+
+</html>

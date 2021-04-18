@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .pad {
+            padding-right: 30px;
+        }
+
+        a.nav-item:hover {
+            background-color: lightskyblue;
+            border-radius: 5px;
+        }
+
+        body {
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container">
+
+                <a href="http://localhost:3000/passport_seva/home" class="navbar-brand">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWQyWxu77uk-9UmrJvgfSLaaH_d_IcPpA4JHiXAMBZHDw9FGk0TTkYlMfOXHLoVnPTy1c&usqp=CAU"
+                        height="50px" alt="CoolBrand">
+                </a>
+                <span class="h4">Passport Seva</span>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <% if(username.username) {%>
+                            <a href="http://localhost:3000/passport_seva/apply_passport" class="nav-item nav-link">Apply
+                                for passport
+                                online</a>
+                            <a href="http://localhost:3000/passport_seva/logout" class="nav-item nav-link">Logout</a>
+                            <%} else {%>
+                                <a href="http://localhost:3000/passport_seva/register" class="nav-item nav-link">New
+                                    User
+                                    Registration</a>
+                                <a href="http://localhost:3000/passport_seva/admin_login"
+                                    class="nav-item nav-link">Admin Login</a>
+                                <a href="http://localhost:3000/passport_seva/police_login"
+                                    class="nav-item nav-link">Police Login</a>
+                                <a href="http://localhost:3000/passport_seva/login" class="nav-item nav-link">Login</a>
+                                <% } %>
+                    </div>
+                </div>
+
+
+        </nav>
+    </header>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>Self Declaration</h3>
+        </div>
+
+        <div class="card-body bg-light">
+            <form action="/passport_seva/apply_passport/self_declaration" method="POST">
+                <div>
+                    <div>
+                        <p><b>The selected document(s) needs to be submitted at PSK/Passport Office for
+                                verification.</b>
+                        </p>
+                        <label for="">Proof of Birth(Select from drop-down)</label>
+                    </div>
+                    <div>
+                        <label for="">Proof of Present Residential Address(Select from drop-down)</label>
+                    </div>
+                </div>
+                <div>
+                    <p>Please read the declaration carefully.</p>
+                    <p>
+                        I owe allegance to the sovereignity unity and integrity of India and have not voluntarily
+                        acquired
+                        citizenship or travel document of any other
+                        country. I have not lost, surrendered or been deprived of the citizenship of India. I have not
+                        contravened
+                        any of the conditions relating to the
+                        possession and use of an Indian passport.
+                    </p>
+                    <p>
+                        I affirm that the information and particulars given by me in this form are true and correct. I
+                        further
+                        state
+                        that I am not suppressing any material
+                        information on this regard. I further affirm that the enclosures and documentary proof submitted
+                        in
+                        support
+                        of my application for an Indian passport
+                        are authentic and soceity pertain to me and I am fully responsible for the accuracy of the same.
+                        I
+                        am
+                        liable
+                        to be penalized or prosecuted if found
+                        otherwise. I am aware that under the Passports Act 1967 it is a criminal offence to furnish any
+                        false
+                        information or to suppress any material information
+                        with a view to obtaining passport or travel document.
+                    </p>
+                    <p>
+                        I have read and understood the contents of the above and by submitting this form certify that
+                        all
+                        the
+                        information submitted by me in the form
+                        is bonafide.
+                    </p>
+                    <div>
+                        <label for="">Place</label>
+                        <input type="text" name="place" id="place" <% if(self_dec){%> value = <%= self_dec.place %>
+                            <%}%>>
+                                <label for="">Date</label>
+                                <input type="text" name="date" id="date" <% if(self_dec){%> value = <%= self_dec.date %>
+                                    <%}%>>
+                    </div>
+                    <br>
+                    <div><button type="submit" class="btn btn-success">Submit</button></div>
+                </div>
+            </form>
+            <br>
+            <div>
+                <a class="text-decoration-none btn bg-dark text-light"
+                    href="http://localhost:3000/passport_seva/apply_passport/passport_details_verification">Prev</a>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5 ">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase">External Links</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-dark">Ministry of External Affairs</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">National Portal of India</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Bureau of Immigration</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Foreigners Division</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase mb-0">Legal Information</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-dark">Terms & Conditions</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Copyright Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Hyperlinking Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3 text-center" style="background-color: rgba(0, 0, 0, 0.2);">
+            © Content Owned by Ministry of External Affairs, Government of India<br>
+            Site Maintained by batch-3 Limited<br>
+            Best Viewed in chrome<br>
+            Last Updated on 16/04/2021<br>
+
+        </div>
+    </footer>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+
+
+</html>

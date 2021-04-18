@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .pad {
+            padding-right: 30px;
+        }
+
+        a.nav-item:hover {
+            background-color: lightskyblue;
+            border-radius: 5px;
+        }
+
+        body {
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container">
+
+                <a href="http://localhost:3000/passport_seva/home" class="navbar-brand">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWQyWxu77uk-9UmrJvgfSLaaH_d_IcPpA4JHiXAMBZHDw9FGk0TTkYlMfOXHLoVnPTy1c&usqp=CAU"
+                        height="50px" alt="CoolBrand">
+                </a>
+                <span class="h4">Passport Seva</span>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="http://localhost:3000/passport_seva/home" class="nav-item nav-link">Logout</a>
+                    </div>
+                </div>
+
+
+        </nav>
+    </header>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>Applicant Detail</h3>
+        </div>
+        <div class="card-body bg-light">
+            <div>
+                <div>
+                    <p><b>First Name : </b></p>
+                    <p>
+                        <%=applicant_detail.first_name%>
+                    </p>
+                    <p><b>Last Name : </b></p>
+                    <p>
+                        <%=applicant_detail.last_name%>
+                    </p>
+                    <p><b>Gender : </b></p>
+                    <p>
+                        <%=applicant_detail.gender %>
+                    </p>
+                    <p><b>Other Name : </b></p>
+                    <p>
+                        <%=applicant_detail.any_other_name %>
+                    </p>
+                    <p><b>Changed Name : </b></p>
+                    <p>
+                        <%=applicant_detail.changed_name %>
+                    </p>
+                    <p><b>Date of Birth : </b></p>
+                    <p>
+                        <%=applicant_detail.dob %>
+                    </p>
+                    <p><b>Place of Birth out of India? : </b></p>
+                    <p>
+                        <%=applicant_detail.place_of_birth_out_of_india %>
+                    </p>
+                    <p><b>Place of Birth : </b></p>
+                    <p>
+                        <%=applicant_detail.place_of_birth %>
+                    </p>
+                    <p><b>State/UT : </b></p>
+                    <p>
+                        <%=applicant_detail.state %>
+                    </p>
+                    <p><b>District : </b></p>
+                    <p>
+                        <%=applicant_detail.district %>
+                    </p>
+                    <p><b>Marital Status : </b></p>
+                    <p>
+                        <%=applicant_detail.martial_status %>
+                    </p>
+                    <p><b>Citizen of India By : </b></p>
+                    <p>
+                        <%=applicant_detail.citizen_of_india_by %>
+                    </p>
+                    <p><b>Pan Card Number : </b></p>
+                    <p>
+                        <%=applicant_detail.pan_number %>
+                    </p>
+                    <p><b>Voter ID card Number : </b></p>
+                    <p>
+                        <%=applicant_detail.voter_id %>
+                    </p>
+                    <p><b>Employment Type : </b></p>
+                    <p>
+                        <%=applicant_detail.employment_type %>
+                    </p>
+                    <p><b>Parent/Spouse Goverment Servent : </b></p>
+                    <p>
+                        <%=applicant_detail.parent_govt_servent %>
+                    </p>
+                    <p><b>Education Qualification : </b></p>
+                    <p>
+                        <%=applicant_detail.education_type%>
+                    </p>
+                    <p><b>Aadhar Card Number : </b></p>
+                    <p>
+                        <%=applicant_detail.visible_mark %>
+                    </p>
+                    <p><b>Visible Mark on Body : </b></p>
+                    <p>
+                        <%=applicant_detail.aadhaar_number %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>Residential Address</h3>
+        </div>
+        <div class="card-body bg-light">
+            <div>
+                <div>
+                    <p><b>Present Address out of India : </b></p>
+                    <p>
+                        <%= residential_address_detail.present_address_out_of_india %>
+                    </p>
+                    <p><b>House Number and Street Name : </b></p>
+                    <p>
+                        <%= residential_address_detail.house_street %>
+                    </p>
+                    <p><b>Village/Town/City : </b></p>
+                    <p>
+                        <%= residential_address_detail.village_town_city %>
+                    </p>
+                    <p><b>State/UT : </b></p>
+                    <p>
+                        <%= residential_address_detail.state_ut %>
+                    </p>
+                    <p><b>District : </b></p>
+                    <p>
+                        <%= residential_address_detail.district %>
+                    </p>
+                    <p><b>Police Station : </b></p>
+                    <p>
+                        <%= residential_address_detail.police_station %>
+                    </p>
+                    <p><b>Pincode : </b></p>
+                    <p>
+                        <%= residential_address_detail.pincode %>
+                    </p>
+                    <p><b>Mobile Number : </b></p>
+                    <p>
+                        <%= residential_address_detail.moblie_number %>
+                    </p>
+                    <p><b>Telephone Number : </b></p>
+                    <p>
+                        <%= residential_address_detail.telephone_number %>
+                    </p>
+                    <p><b>Email ID : </b></p>
+                    <p>
+                        <%= residential_address_detail.email_id %>
+                    </p>
+                    <p><b>Permanent Address Available : </b></p>
+                    <p>
+                        <%= residential_address_detail.is_permanent_address_available %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="container card p-0">
+        <br>
+        <br>
+        <div class="card-body bg-light">
+            <form action="/passport_seva/police/applicant_detail/<%=comprehensive_detail._id%>" method="POST">
+                <button type="submit" class="col-md-12 btn btn-success text-center">Verify Details</button>
+            </form>
+        </div>
+        <br>
+        <br>
+    </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5 ">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase">External Links</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-dark">Ministry of External Affairs</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">National Portal of India</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Bureau of Immigration</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Foreigners Division</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase mb-0">Legal Information</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-dark">Terms & Conditions</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Copyright Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Hyperlinking Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3 text-center" style="background-color: rgba(0, 0, 0, 0.2);">
+            © Content Owned by Ministry of External Affairs, Government of India<br>
+            Site Maintained by batch-3 Limited<br>
+            Best Viewed in chrome<br>
+            Last Updated on 16/04/2021<br>
+
+        </div>
+    </footer>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+
+
+</html>

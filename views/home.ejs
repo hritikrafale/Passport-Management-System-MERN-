@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/home.css">
+  <title>Passport Seva</title>
+</head>
+<style>
+  a.nav-item:hover {
+    background-color: lightskyblue;
+    border-radius: 5px;
+  }
+</style>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+      <div class="container">
+
+        <a href="http://localhost:3000/passport_seva/home" class="navbar-brand">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWQyWxu77uk-9UmrJvgfSLaaH_d_IcPpA4JHiXAMBZHDw9FGk0TTkYlMfOXHLoVnPTy1c&usqp=CAU"
+            height="80px" alt="CoolBrand">
+        </a>
+        <span class="h3">Passport Seva</span>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ml-auto">
+            <% if(username.username) {%>
+              <a href="http://localhost:3000/passport_seva/home" class="nav-item nav-link">Home</a>
+              <a href="http://localhost:3000/passport_seva/apply_passport" class="nav-item nav-link">Apply for passport
+                online</a>
+              <a href="http://localhost:3000/passport_seva/logout" class="nav-item nav-link">Logout</a>
+              <%} else {%>
+                <a href="http://localhost:3000/passport_seva/home" class="nav-item nav-link">Home</a>
+                <a href="http://localhost:3000/passport_seva/register" class="nav-item nav-link">New User
+                  Registration</a>
+                <a href="http://localhost:3000/passport_seva/admin_login" class="nav-item nav-link">Admin Login</a>
+                <a href="http://localhost:3000/passport_seva/police_login" class="nav-item nav-link">Police Login</a>
+                <a href="http://localhost:3000/passport_seva/login" class="nav-item nav-link">Login</a>
+                <% } %>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container shadow-box-example z-depth-5 flex-center" style="height: 300px;margin-top: 40px;">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade " data-ride="carousel">
+      <ol class="carousel-indicators ">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active ">
+          <img class="d-block w-100 " style="height: 300px;"
+            src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/xl-jet-airplane-taking-off-at-sunset-sharply-done.jpg"
+            alt="First slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100 " style="height: 300px;"
+            src="https://specials-images.forbesimg.com/imageserve/5ffc6346d65604028a6132f7/960x0.jpg?cropX1=0&cropX2=3958&cropY1=475&cropY2=2701"
+            alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100 " style="height: 300px;"
+            src="https://www.india.gov.in/sites/upload_files/npi/files/spotlights/tourist-visa2015-inner-new.jpg"
+            alt="Third slide">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  <div class="container " style="padding: 30px;margin-top:30px;">
+    <h4>VISION</h4>
+    To deliver passport services to citizens in a timely, transparent, more accessible, reliable manner and in a
+    comfortable environment through streamlined processes and committed, trained and motivated workforce
+
+
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <!--Grid column-->
+      <div class="hello" style="padding: 30px;margin-top:30px;">
+        <h5 class="text-uppercase">Annoncement</h5>
+
+        <div>
+          All Passport Seva Kendras (PSKs) and Post Office Passport Seva Kendras (POPSKs) are operational now.
+          Applicants may reschedule their appointments to the nearest PSK/POPSK to avail the services. Applicants are
+          advised to wear a mask, carry sanitizer, download and install Aarogya Setu App and follow social distancing
+          norms at PSKs/POPSKs during the visit.
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-light text-center text-lg-start">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6">
+          <h5 class="text-uppercase">External Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-dark">Ministry of External Affairs</a>
+            </li>
+            <li>
+              <a href="#!" class="text-dark">National Portal of India</a>
+            </li>
+            <li>
+              <a href="#!" class="text-dark">Bureau of Immigration</a>
+            </li>
+            <li>
+              <a href="#!" class="text-dark">Foreigners Division</a>
+            </li>
+          </ul>
+        </div>
+
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6">
+          <h5 class="text-uppercase mb-0">Legal Information</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!" class="text-dark">Terms & Conditions</a>
+            </li>
+            <li>
+              <a href="#!" class="text-dark">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#!" class="text-dark">Copyright Policy</a>
+            </li>
+            <li>
+              <a href="#!" class="text-dark">Hyperlinking Policy</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3 text-center" style="background-color: rgba(0, 0, 0, 0.2);">
+      © Content Owned by Ministry of External Affairs, Government of India<br>
+      Site Maintained by batch-3 Limited<br>
+      Best Viewed in chrome<br>
+      Last Updated on 16/04/2021<br>
+
+    </div>
+  </footer>
+</body>
+
+</html>
+
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+  integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</body>
+
+</html>

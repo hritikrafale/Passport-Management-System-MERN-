@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .pad {
+            padding-right: 30px;
+        }
+
+        a.nav-item:hover {
+            background-color: lightskyblue;
+            border-radius: 5px;
+        }
+
+        body {
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container">
+
+                <a href="http://localhost:3000/passport_seva/home" class="navbar-brand">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWQyWxu77uk-9UmrJvgfSLaaH_d_IcPpA4JHiXAMBZHDw9FGk0TTkYlMfOXHLoVnPTy1c&usqp=CAU"
+                        height="50px" alt="CoolBrand">
+                </a>
+                <span class="h4">Passport Seva</span>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <% if(username.username) {%>
+                            <a href="http://localhost:3000/passport_seva/apply_passport" class="nav-item nav-link">Apply
+                                for passport
+                                online</a>
+                            <a href="http://localhost:3000/passport_seva/logout" class="nav-item nav-link">Logout</a>
+                            <%} else {%>
+                                <a href="http://localhost:3000/passport_seva/register" class="nav-item nav-link">New
+                                    User
+                                    Registration</a>
+                                <a href="http://localhost:3000/passport_seva/admin_login"
+                                    class="nav-item nav-link">Admin Login</a>
+                                <a href="http://localhost:3000/passport_seva/police_login"
+                                    class="nav-item nav-link">Police Login</a>
+                                <a href="http://localhost:3000/passport_seva/login" class="nav-item nav-link">Login</a>
+                                <% } %>
+                    </div>
+                </div>
+
+
+        </nav>
+    </header>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h1>Passport Details Verification</h1>
+        </div>
+        <div class="card-body bg-light">
+            <div>
+                <p>Please verify the details shown below(like spelling of name, address etc) which will be printed on
+                    your
+                    passport.</p>
+            </div>
+            <div>
+                <div>
+                    <h2>Passport Preview Details</h2>
+                </div>
+                <br>
+                <div>
+                    <span><b>Type</b></span>
+                    <span><b>P</b></span>
+                </div>
+                <br>
+                <div>
+                    <span><b>Country Code</b></span>
+                    <span><b>Ind</b></span>
+                </div>
+                <br>
+                <div>
+                    <span><b>Surname</b></span>
+                    <span><b>
+                            <%= applicant_detail.last_name %>
+                        </b></span>
+                </div>
+                <br>
+                <div>
+                    <span><b>Given Name</b></span>
+                    <span><b>
+                            <%= applicant_detail.first_name%>
+                        </b></span>
+                </div>
+                <br>
+                <div>
+                    <span><b>Nationality</b></span>
+                    <span><b></b>Indian</span>
+                </div>
+                <br>
+                <div>
+                    <span><b>Place of Birth</b></span>
+                    <span><b>
+                            <%= applicant_detail.place_of_birth %>
+                        </b></span>
+                </div>
+                <br>
+                <div>
+                    <span><b>Date of Birth</b></span>
+                    <span><b>
+                            <%= applicant_detail.dob %>
+                        </b></span>
+                </div>
+                <br>
+                <div>
+                    <span><b>Name of Father/Legal Guardian</b></span>
+                    <span><b>
+                            <%= family_detail.father_first_name %>
+                        </b></span>
+                </div>
+                <br>
+                <div>
+                    <span><b>Name of Mother</b></span>
+                    <span><b>
+                            <%= family_detail.mother_first_name %>
+                        </b></span>
+                </div>
+                <br>
+                <div>
+                    <span><b>Address</b></span>
+                    <span><b>
+                            <%= residential_add.house_street %>
+                        </b></span>
+                </div>
+                <br>
+            </div>
+            <div>
+                <a class="text-decoration-none btn bg-dark text-light"
+                    href="http://localhost:3000/passport_seva/apply_passport/other_details">Prev</a>
+                <a class="text-decoration-none btn bg-dark text-light"
+                    href="http://localhost:3000/passport_seva/apply_passport/self_declaration">Next</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5 ">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase">External Links</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-dark">Ministry of External Affairs</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">National Portal of India</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Bureau of Immigration</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Foreigners Division</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase mb-0">Legal Information</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-dark">Terms & Conditions</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Copyright Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Hyperlinking Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3 text-center" style="background-color: rgba(0, 0, 0, 0.2);">
+            © Content Owned by Ministry of External Affairs, Government of India<br>
+            Site Maintained by batch-3 Limited<br>
+            Best Viewed in chrome<br>
+            Last Updated on 16/04/2021<br>
+
+        </div>
+    </footer>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+
+
+</html>

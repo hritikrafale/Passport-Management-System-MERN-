@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .pad {
+            padding-right: 30px;
+        }
+
+        a.nav-item:hover {
+            background-color: lightskyblue;
+            border-radius: 5px;
+        }
+
+        body {
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container">
+
+                <a href="http://localhost:3000/passport_seva/home" class="navbar-brand">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWQyWxu77uk-9UmrJvgfSLaaH_d_IcPpA4JHiXAMBZHDw9FGk0TTkYlMfOXHLoVnPTy1c&usqp=CAU"
+                        height="50px" alt="CoolBrand">
+                </a>
+                <span class="h4">Passport Seva</span>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="http://localhost:3000/passport_seva/home" class="nav-item nav-link">
+                            Home</a>
+                        <a href="http://localhost:3000/passport_seva/register" class="nav-item nav-link">New
+                            User
+                            Registration</a>
+                        <a href="http://localhost:3000/passport_seva/admin_login" class="nav-item nav-link">Admin
+                            Login</a>
+                        <a href="http://localhost:3000/passport_seva/police_login" class="nav-item nav-link">Police
+                            Login</a>
+                        <a href="http://localhost:3000/passport_seva/login" class="nav-item nav-link">Login</a>
+                    </div>
+                </div>
+
+
+        </nav>
+    </header>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>User Registration</h3>
+        </div>
+        <div class="card-body bg-light">
+            <form action="/passport_seva/register" method="POST" class="validated-form" novalidate>
+                <div>
+                    <label class="form-label" for="cpv_delhi">Register to apply at
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input class="form-check-input" type="radio" id="cpv_delhi" name="register_to_apply_at"
+                        value="cpv_delhi" required>
+                    <label class="form-label" for="cpv_delhi">CPV Delhi
+                        &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input class="form-check-input" type="radio" id="passport_office" name="register_to_apply_at"
+                        value="passport_office" required>
+                    <label class="form-label" for="passport_office">Passport Office</label>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <br>
+                <div class="mb-3">
+                    <label for="pass_office" class="form-label">Passport Office</label>
+                    <select name="passport_office" id="pass_office" class="form-select" required>
+                        <option value="select" default>---Select---</option>
+                        <option value="agartala">Agartala</option>
+                        <option value="aizawl">Aizawl</option>
+                        <option value="ahmedabad">Ahmedabad</option>
+                        <option value="bangalore">Bangalore</option>
+                        <option value="bhopal">Bhopal</option>
+                        <option value="bhubaneswar">Bhubaneswar</option>
+                        <option value="chandigarh">Chandigarh</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="dispur">Dispur</option>
+                        <option value="dehradun">Dehradun</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="gandhinagar">Gandhinagar</option>
+                        <option value="gangtok">Gangtok</option>
+                        <option value="hyderabad">Hyderabad</option>
+                        <option value="indore">Indore</option>
+                        <option value="imphal">Imphal</option>
+                        <option value="itanagar">Itanagar</option>
+                        <option value="jaipur">Jaipur</option>
+                        <option value="kanpur">Kanpur</option>
+                        <option value="kohima">Kohima</option>
+                        <option value="kolkata">Kolkata</option>
+                        <option value="lucknow">Lucknow</option>
+                        <option value="ludhiana">Ludhiana</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="nagpur">Nagpur</option>
+                        <option value="panaji">Panaji</option>
+                        <option value="patna">Patna</option>
+                        <option value="pune">Pune</option>
+                        <option value="raipur">Raipur</option>
+                        <option value="shillong">Shillong</option>
+                        <option value="shimla">Shimla</option>
+                        <option value="srinagar">Sri Nagar</option>
+                        <option value="surat">Surat</option>
+                        <option value="thane">Thane</option>
+                        <option value="thiruvananthapuram">Thiruvananthapuram</option>
+                    </select>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="first_name" class="form-label">First Name</label>
+                    <input type="text" id="first_name" name="first_name" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="last_name" class="form-label">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="dob" class="form-label">Date of Birth</label>
+                    <input type="date" id="dob" name="date_of_birth" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" name="email_id" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="yes" class="form-label">Do you want email as
+                        username?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="radio" id="yes" name="email_as_username" value="Yes" class="form-check-input" required>
+                    <label for="Yes" class="form-label">Yes&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="radio" id="no" name="email_as_username" value="No" class="form-check-input" required>
+                    <label for="No" class="form-label">No</label>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="confirm_password" class="form-label">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="hint_question" class="form-label">Hint Question</label>
+                    <select name="hint_question" id="hint_question" class="form-select" required>
+                        <option value="select" default>---Select---</option>
+                        <option value="birth_city">Birth City</option>
+                        <option value="fav_color">Favourite Colour</option>
+                        <option value="fav_crick">Favourite Cricketer</option>
+                        <option value="fav_food">Favourite Food</option>
+                        <option value="first_school">First School</option>
+                        <option value="first_car_owned">Make of First car Owned</option>
+                        <option value="mother_maiden_name">Mother's Maiden name</option>
+                    </select>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="hint_answer" class="form-label">Hint Answer</label>
+                    <input type="text" name="hint_answer" id="hint_answer" required class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success">Register</button>
+                </div>
+            </form>
+            <a class="text-decoration-none btn bg-dark text-light"
+                href="http://localhost:3000/passport_seva/home">Home</a>
+            <a class="text-decoration-none btn bg-dark text-light"
+                href="http://localhost:3000/passport_seva/login">Login</a>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5 ">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase">External Links</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-dark">Ministry of External Affairs</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">National Portal of India</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Bureau of Immigration</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Foreigners Division</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <h5 class="text-uppercase mb-0">Legal Information</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!" class="text-dark">Terms & Conditions</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Copyright Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Hyperlinking Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3 text-center" style="background-color: rgba(0, 0, 0, 0.2);">
+            © Content Owned by Ministry of External Affairs, Government of India<br>
+            Site Maintained by batch-3 Limited<br>
+            Best Viewed in chrome<br>
+            Last Updated on 16/04/2021<br>
+
+        </div>
+    </footer>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+
+
+</html>

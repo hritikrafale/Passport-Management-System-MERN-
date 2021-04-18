@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Apply passport online</h1>
+
+    <h3>RPO selection</h3>
+
+    <form action="/passport_seva/apply_passport" method="POST">
+        <div>
+            <label for="state">State</label>
+            <select name="state" id="state">
+                <option value="select" default>---Select---</option>
+                <option value="andaman_nicobar">Andaman and Nicobar</option>
+                <option value="andhra_pradesh">Andhra Pradesh</option>
+                <option value="arunachal_pradesh">Arunachal Pradesh</option>
+                <option value="assam">assam</option>
+                <option value="bihar">bihar</option>
+                <option value="chhattisgarh">chhattisgarh</option>
+                <option value="delhi">Delhi</option>
+                <option value="goa">goa</option>
+                <option value="gujarat">Gujarat</option>
+                <option value="haryana">Haryana</option>
+                <option value="himachal_pradesh">Himachal Pradesh</option>
+                <option value="jharkhand">Jharkhand</option>
+                <option value="karnataka">Karnataka</option>
+                <option value="kerala">Kerala</option>
+                <option value="lakshadweep">Lakshadweep</option>
+                <option value="madhya_pradesh">Madhya Pradesh</option>
+                <option value="maharashtra">Maharashtra</option>
+                <option value="manipur">Manipur</option>
+                <option value="meghalaya">Meghalaya</option>
+                <option value="mizoram">Mizoram</option>
+                <option value="nagaland">Nagaland</option>
+                <option value="odisha">Odisha</option>
+                <option value="puducherry">Puducherry</option>
+                <option value="punjab">Punjab</option>
+                <option value="rajasthan">Rajasthan</option>
+                <option value="sikkim">Sikkim</option>
+                <option value="tamil_nadu">Tamil Nadu</option>
+                <option value="telangana">Telangana</option>
+                <option value="tripura">Tripura</option>
+                <option value="uttar_pradesh">Uttar Pradesh</option>
+                <option value="uttarakhand">Uttarakhand</option>
+                <option value="west_bengal">West Bengal</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label for="district">District</label>
+            <input type="text" name="district" id="district">
+        </div>
+        <br>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <a href="http://localhost:3000/passport_seva/home">Home</a>
+    <a href="http://localhost:3000/passport_seva/login">Login</a>
+</body>
+</html>

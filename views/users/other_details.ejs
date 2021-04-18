@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .pad {
+            padding-right: 30px;
+        }
+
+        a.nav-item:hover {
+            background-color: lightskyblue;
+            border-radius: 5px;
+        }
+
+        body {
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container">
+
+                <a href="http://localhost:3000/passport_seva/home" class="navbar-brand">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWQyWxu77uk-9UmrJvgfSLaaH_d_IcPpA4JHiXAMBZHDw9FGk0TTkYlMfOXHLoVnPTy1c&usqp=CAU"
+                        height="50px" alt="CoolBrand">
+                </a>
+                <span class="h4">Passport Seva</span>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <% if(username.username) {%>
+                            <a href="http://localhost:3000/passport_seva/apply_passport" class="nav-item nav-link">Apply
+                                for passport
+                                online</a>
+                            <a href="http://localhost:3000/passport_seva/logout" class="nav-item nav-link">Logout</a>
+                            <%} else {%>
+                                <a href="http://localhost:3000/passport_seva/register" class="nav-item nav-link">New
+                                    User
+                                    Registration</a>
+                                <a href="http://localhost:3000/passport_seva/admin_login"
+                                    class="nav-item nav-link">Admin Login</a>
+                                <a href="http://localhost:3000/passport_seva/police_login"
+                                    class="nav-item nav-link">Police Login</a>
+                                <a href="http://localhost:3000/passport_seva/login" class="nav-item nav-link">Login</a>
+                                <% } %>
+                    </div>
+                </div>
+
+
+        </nav>
+    </header>
+    <div class="container card p-0">
+        <div class="card-header bg-secondary text-light">
+            <h3>Other Details</h3>
+        </div>
+        <div class="card-body bg-light">
+            <form action="/passport_seva/apply_passport/other_details" method="POST">
+                <div>
+                    <div>
+                        <p><b>1)Provide the following details if there are any criminal proceedings pending against the
+                                applicant.</b>b></p>
+                    </div>
+                    <div>
+                        <label>Are any proceedings in respect of an offence alleged to have been committed by you
+                            pending
+                            before
+                            a criminal court in India?</label>
+                        <input type="radio" id="yes1" name="any_pending_proceeding" value="yes" <% if(other_detail &&
+                            other_detail.any_pending_proceeding=="yes" ){%> checked <%}%>>
+                            <label for="yes1">Yes</label>
+                            <input type="radio" id="no1" name="any_pending_proceeding" value="no" <% if(other_detail &&
+                                other_detail.any_pending_proceeding=="no" ){%> checked <%}%>>
+                                <label for="no1">No</label>
+                    </div>
+                    <div>
+                        <label for="">Has any warrant or summons for your appearence been issued and pending before a
+                            court
+                            under any law for the time being in force?</label>
+                        <input type="radio" id="yes2" name="any_pending_warrant_summons" value="yes" <% if(other_detail
+                            && other_detail.any_pending_warrant_summons=="yes" ){%> checked <%}%>>
+                            <label for="yes2">Yes</label>
+                            <input type="radio" id="no2" name="any_pending_warrant_summons" value="no" <%
+                                if(other_detail && other_detail.any_pending_warrant_summons=="no" ){%> checked <%}%>>
+                                <label for="no2">No</label>
+                    </div>
+                    <div>
+                        <label for="">Has a warrant for your arrest been issued by a court under any law for the time
+                            being
+                            in
+                            force?</label>
+                        <input type="radio" id="yes3" name="any_warrant_issued" value="yes" <% if(other_detail &&
+                            other_detail.any_warrant_issued=="yes" ){%> checked <%}%>>
+                            <label for="yes3">Yes</label>
+                            <input type="radio" id="no3" name="any_warrant_issued" value="no" <% if(other_detail &&
+                                other_detail.any_warrant_issued=="no" ){%> checked <%}%>>
+                                <label for="no3">No</label>
+                    </div>
+                    <div>
+                        <label for="">Has an order prohibiting your departure from India been made by any court?</label>
+                        <input type="radio" id="yes" name="prohibiting_departure" value="yes" <% if(other_detail &&
+                            other_detail.prohibiting_departure=="yes" ){%> checked <%}%>>
+                            <label for="yes4">Yes</label>
+                            <input type="radio" id="no" name="prohibiting_departure" value="no" <% if(other_detail &&
+                                other_detail.prohibiting_departure=="no" ){%> checked <%}%>>
+                                <label for="no4">No</label>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p><b>2)Provide the following details if the applicant has been convicted by a court in
+                                india.</b>
+                        </p>
+                    </div>
+                    <div>
+                        <label for="">Have you at any time during the period of five years immediately proceding the
+                            date of
+                            this application been convicted by a court in
+                            India for offence involving moral turpitude and sentenced in respect there of to
+                            imprisonment
+                            for
+                            not less than two years?
+                        </label>
+                        <input type="radio" id="yes5" name="convicted_by_court" value="yes" <% if(other_detail &&
+                            other_detail.convicted_by_court=="yes" ){%> checked <%}%>>
+                            <label for="yes5">Yes</label>
+                            <input type="radio" id="no5" name="convicted_by_court" value="no" <% if(other_detail &&
+                                other_detail.convicted_by_court=="no" ){%> checked <%}%>>
+                                <label for="no5">No</label>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p><b>3)Provide the following details if the applicant has been refused/denied passport.</b></p>
+                    </div>
+                    <div>
+                        <label for="">Have you ever been refused/denied passport?</label>
+                        <input type="radio" id="yes6" name="denied_passport" value="yes" <% if(other_detail &&
+                            other_detail.denied_passport=="yes" ){%> checked <%}%>>
+                            <label for="yes6">Yes</label>
+                            <input type="radio" id="no6" name="denied_passport" value="no" <% if(other_detail &&
+                                other_detail.denied_passport=="no" ){%> checked <%}%>>
+                                <label for="no6">No</label>
+                    </div>
+                    <div>
+                        <label for="">Has your passport ever been impounded?</label>
+                        <input type="radio" id="yes7" name="ever_impounded" value="yes" <% if(other_detail &&
+                            other_detail.ever_impounded=="yes" ){%> checked <%}%>>
+                            <label for="yes7">Yes</label>
+                            <input type="radio" id="no7" name="ever_impounded" value="no" <% if(other_detail &&
+                                other_detail.ever_impounded=="no" ){%> checked <%}%>>
+                                <label for="no7">No</label>
+                    </div>
+                    <div>
+                        <label for="">Has your passport ever been revoked?</label>
+                        <input type="radio" id="yes8" name="passport_revoked" value="yes" <% if(other_detail &&
+                            other_detail.passport_revoked=="yes" ){%> checked <%}%>>
+                            <label for="yes8">Yes</label>
+                            <input type="radio" id="no8" name="passport_revoked" value="no" <% if(other_detail &&
+                                other_detail.passport_revoked=="no" ){%> checked <%}%>>
+                                <label for="no8">No</label>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p><b>4)Provide the following details if applicant has applied for or been granted foreign
+                                citizenship.</b></p>
+                    </div>
+                    <div>
+                        <label for="">Have you ever been granted citizenship by any other country?</label>
+                        <input type="radio" id="yes9" name="citizenship_by_other_country" value="yes" <% if(other_detail
+                            && other_detail.citizenship_by_other_country=="yes" ){%> checked <%}%>>
+                            <label for="yes9">Yes</label>
+                            <input type="radio" id="no9" name="citizenship_by_other_country" value="no" <%
+                                if(other_detail && other_detail.citizenship_by_other_country=="no" ){%> checked <%}%>>
+                                <label for="no9">No</label>
+                    </div>
+                    <div>
+                        <label for="">Have you ever held the passport of any other country at any time?</label>
+                        <input type="radio" id="yes10" name="any_other_country_passport_anytime" value="yes" <%
+                            if(other_detail && other_detail.any_other_country_passport_anytime=="yes" ){%> checked <%}%>
+                            >
+                            <label for="yes10">Yes</label>
+                            <input type="radio" id="no10" name="any_other_country_passport_anytime" value="no" <%
+                                if(other_detail && other_detail.any_other_country_passport_anytime=="no" ){%> checked
+                            <%}%>>
+                                <label for="no10">No</label>
+                    </div>
+                    <div>
+                        <label for="">Have you ever surrendered your Indian passport?</label>
+                        <input type="radio" id="yes11" name="surrendered_indian_passport" value="yes" <% if(other_detail
+                            && other_detail.surrendered_indian_passport=="yes" ){%> checked <%}%>>
+                            <label for="yes11">Yes</label>
+                            <input type="radio" id="no11" name="surrendered_indian_passport" value="no" <%
+                                if(other_detail && other_detail.surrendered_indian_passport=="no" ){%> checked <%}%>>
+                                <label for="no11">No</label>
+                    </div>
+                    <div>
+                        <label for="">Have you ever applied for renunciation of Indian citizenship?</label>
+                        <input type="radio" id="yes12" name="applied_renunciation_indian_citizenship" value="yes" <%
+                            if(other_detail && other_detail.applied_renunciation_indian_citizenship=="yes" ){%> checked
+                        <%}%>>
+                            <label for="yes12">Yes</label>
+                            <input type="radio" id="no12" name="applied_renunciation_indian_citizenship" value="no" <%
+                                if(other_detail && other_detail.applied_renunciation_indian_citizenship=="no" ){%>
+                            checked
+                            <%}%>
+                                >
+                                <label for="no12">No</label>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p><b>5)Provide the following details if applicant has returned to India on Emergency
+                                Certificate.</b>
+                        </p>
+                    </div>
+                    <div>
+                        <label>Have you ever returned to India on Emergency Certificate(EC)?</label>
+                        <input type="radio" id="yes13" name="returned_on_EC" value="yes" <% if(other_detail &&
+                            other_detail.returned_on_EC=="yes" ){%> checked <%}%>>
+                            <label for="yes13">Yes</label>
+                            <input type="radio" id="no13" name="returned_on_EC" value="no" <% if(other_detail &&
+                                other_detail.returned_on_EC=="no" ){%> checked <%}%>>
+                                <label for="no13">No</label>
+                    </div>
+                    <div>
+                        <label for="">Have you ever been deported from any country?</label>
+                        <input type="radio" id="yes14" name="deported_from_any_country" value="yes" <% if(other_detail
+                            && other_detail.deported_from_any_country=="yes" ){%> checked <%}%>>
+                            <label for="yes14">Yes</label>
+                            <input type="radio" id="no14" name="deported_from_any_country" value="no" <% if(other_detail
+                                && other_detail.deported_from_any_country=="no" ){%> checked <%}%>>
+                                <label for="no14">No</label>
+                    </div>
+                    <div>
+                        <label for="">Have you ever been repatriated from any country back to India?</label>
+                        <input type="radio" id="yes15" name="repatriated_from_any_country" value="yes" <%
+                            if(other_detail && other_detail.repatriated_from_any_country=="yes" ){%> checked <%}%>>
+                            <label for="yes15">Yes</label>
+                            <input type="radio" id="no15" name="repatriated_from_any_country" value="no" <%
+                                if(other_detail && other_detail.repatriated_from_any_country=="no" ){%> checked <%}%>>
+                                <label for="no15">No</label>
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <button type="submit" class="btn btn-success">Save My Details</button>
+                </div>
+            </form>
+            <br>
+            <div>
+                <a class="text-decoration-none btn bg-dark text-light"
+                    href="http://localhost:3000/passport_seva/apply_passport/identity_certificate">Prev</a>
+                <a class="text-decoration-none btn bg-dark text-light"
+                    href="http://localhost:3000/passport_seva/apply_passport/passport_details_verification">Next</a>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="bg-light text-center text-lg-start mt-5 ">
+            <!-- Grid container -->
+            <div class="container p-4">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <h5 class="text-uppercase">External Links</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-dark">Ministry of External Affairs</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-dark">National Portal of India</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-dark">Bureau of Immigration</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-dark">Foreigners Division</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <h5 class="text-uppercase mb-0">Legal Information</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!" class="text-dark">Terms & Conditions</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-dark">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-dark">Copyright Policy</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-dark">Hyperlinking Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3 text-center" style="background-color: rgba(0, 0, 0, 0.2);">
+                © Content Owned by Ministry of External Affairs, Government of India<br>
+                Site Maintained by batch-3 Limited<br>
+                Best Viewed in chrome<br>
+                Last Updated on 16/04/2021<br>
+
+            </div>
+        </footer>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+
+
+</html>
